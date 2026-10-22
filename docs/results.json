@@ -1,0 +1,164 @@
+{
+  "animation": {
+    "render": {
+      "out": "work/showcase/animation/animation.mp4",
+      "n_frames": 900,
+      "fps": "25",
+      "video_duration": 36.0,
+      "audio_duration": 36.0,
+      "sample_rate": 48000,
+      "n_cues": 6,
+      "input_sha256": "4762ef64bc75fcdf209e42c85dd450661737bec56e9ac249cb1f1b344878dd9b"
+    },
+    "segments": [
+      {
+        "segment": 0,
+        "scene": "title",
+        "f0": 0,
+        "f1": 100
+      },
+      {
+        "segment": 1,
+        "scene": "pulse",
+        "f0": 100,
+        "f1": 250
+      },
+      {
+        "segment": 2,
+        "scene": "orbit",
+        "f0": 250,
+        "f1": 400
+      },
+      {
+        "segment": 3,
+        "scene": "idle (gap)",
+        "f0": 400,
+        "f1": 420
+      },
+      {
+        "segment": 4,
+        "scene": "bars",
+        "f0": 420,
+        "f1": 575
+      },
+      {
+        "segment": 5,
+        "scene": "comet",
+        "f0": 575,
+        "f1": 750
+      },
+      {
+        "segment": 6,
+        "scene": "outro",
+        "f0": 750,
+        "f1": 900
+      }
+    ]
+  },
+  "multicam": {
+    "plan": {
+      "n_shots": 17,
+      "n_frames": 1405,
+      "fps": "25",
+      "timeline_start_ref_s": 4.600007081275842,
+      "max_abs_src_err_ms": 19.99294733074919
+    },
+    "truth_vs_estimate": [
+      {
+        "camera": "A",
+        "status": "ok",
+        "true_offset_s": 1.3,
+        "true_drift_ppm": 0.0,
+        "est_offset_s": 1.3,
+        "est_drift_ppm": 0.0,
+        "offset_error_ms": -0.0,
+        "drift_error_ppm": 0.003,
+        "fit_windows": 15,
+        "fit_rms_ms": 0.0,
+        "heldout_status": "pass",
+        "heldout_max_abs_ms": 0.0,
+        "heldout_rms_ms": 0.0,
+        "heldout_windows": 17
+      },
+      {
+        "camera": "B",
+        "status": "ok",
+        "true_offset_s": -2.7,
+        "true_drift_ppm": 3200.0,
+        "est_offset_s": -2.699933,
+        "est_drift_ppm": 3196.69,
+        "offset_error_ms": 0.067,
+        "drift_error_ppm": -3.314,
+        "fit_windows": 15,
+        "fit_rms_ms": 0.107,
+        "heldout_status": "pass",
+        "heldout_max_abs_ms": 0.139,
+        "heldout_rms_ms": 0.075,
+        "heldout_windows": 19
+      },
+      {
+        "camera": "C",
+        "status": "ok",
+        "true_offset_s": 4.1,
+        "true_drift_ppm": -2600.0,
+        "est_offset_s": 4.100007,
+        "est_drift_ppm": -2600.02,
+        "offset_error_ms": 0.007,
+        "drift_error_ppm": -0.021,
+        "fit_windows": 14,
+        "fit_rms_ms": 0.003,
+        "heldout_status": "pass",
+        "heldout_max_abs_ms": 0.002,
+        "heldout_rms_ms": 0.001,
+        "heldout_windows": 17
+      }
+    ],
+    "oracle": {
+      "status": "pass",
+      "n_events": 12,
+      "n_ok": 12
+    },
+    "sheet_luminance": {
+      "offset + drift (estimated clock)": [
+        [
+          215.0,
+          214.9,
+          214.5
+        ],
+        [
+          214.8,
+          215.0,
+          213.7
+        ],
+        [
+          214.7,
+          215.1,
+          213.9
+        ]
+      ],
+      "offset only (clap sync at the start, drift ignored)": [
+        [
+          215.0,
+          214.9,
+          214.5
+        ],
+        [
+          214.8,
+          34.8,
+          28.3
+        ],
+        [
+          214.7,
+          34.3,
+          30.0
+        ]
+      ]
+    },
+    "seconds": {
+      "stage": 15.9,
+      "sync_verify": 1.1,
+      "plan_cut": 6.2,
+      "proof": 41.0
+    }
+  }
+}
