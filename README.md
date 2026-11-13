@@ -1,8 +1,16 @@
 # Cueframe
 
+[![ci](https://github.com/bsnydr/cueframe/actions/workflows/ci.yml/badge.svg)](https://github.com/bsnydr/cueframe/actions/workflows/ci.yml)
+
 **One frame-exact timeline, two ways to make a video.** Turn local audio and hand-authored
 cues into custom animation, or estimate camera clocks from audio and assemble a multicamera
 edit. Python library and CLI; local processing; no model downloads or service accounts.
+
+**Jump to:** [Previews](#previews) · [What it does and does not do](#what-it-does-and-does-not-do) ·
+[Install](#install-from-this-checkout) · [Animation quick start](#quick-start-1-audio-and-your-own-animation) ·
+[Multicamera quick start](#quick-start-2-estimate-verify-plan-cut) ·
+[Timing and checks](#timing-and-checks) · [CI evidence](#continuous-integration-evidence) ·
+[Scope and provenance](#scope-and-provenance)
 
 | Audio → animation | Multicamera → verified edit |
 | --- | --- |
@@ -11,10 +19,30 @@ edit. Python library and CLI; local processing; no model downloads or service ac
 | Explicit cue boundaries, gaps and crossfades | Held-out residual checks, source bounds and contiguous shots |
 | No camera inputs or sync stage | Reference audio is trimmed and muxed into the final edit |
 
+## Previews
+
+Both previews are generated from code (synthetic audio, abstract geometry, virtual cameras)
+and are checked into [`docs/`](docs/). They are not footage of real recordings.
+
+| Preview | What you are looking at | Files |
+| --- | --- | --- |
+| Animation (36 s) | Built-in scenes, an idle gap and a custom comet scene driven by synthetic audio | [Video](docs/animation_preview.mp4) · [Contact sheet](docs/animation_sheet.png) |
+| Multicamera edit excerpt (12 s) | An edit cut from three virtual cameras whose clocks drift, aligned by estimated offset and rate | [Video](docs/multicam_preview.mp4) · [Drift sheet](docs/multicam_sheet.png) · [Residual chart](docs/lag_chart.png) |
+
+Measured numbers behind the previews are in [docs/results.json](docs/results.json); the
+multicamera table is [further down](#quick-start-2-estimate-verify-plan-cut).
+
 ![Built-in scenes, an idle gap and the custom comet scene](docs/animation_sheet.png)
 
-[Watch the synthetic animation (36 s)](docs/animation_preview.mp4) ·
-[Watch the multicamera edit excerpt (12 s)](docs/multicam_preview.mp4)
+## What it does and does not do
+
+| Today's library does | Today's library does not |
+| --- | --- |
+| Render custom Pillow scenes from PCM WAV audio and a hand-written cue file | Transcribe speech, detect speakers or track faces |
+| Estimate offset and linear clock drift between a reference recording and cameras | Make automatic editorial judgments |
+| Verify the fit with residual checks before you cut | Provide a GUI or any hosted service |
+| Cut a multicamera edit with the reference audio muxed in | Handle variable-frame-rate files, nonlinear drift or too little shared audio |
+| Run locally with Python 3.11+ and FFmpeg | Prove accuracy on real-world recordings; demos are synthetic |
 
 ## Install from this checkout
 
@@ -211,12 +239,19 @@ python scripts/check_publish.py
 ```
 
 `check.py` runs lint, tests, quick demos and the payload check (`--fast` skips slow tests and
-demos). CI is configured for Python 3.11–3.13 on Linux; hosted CI execution is separate from
-local validation. `check_publish.py` excludes development caches from its inventory, rejects
+demos). `check_publish.py` excludes development caches from its inventory, rejects
 unexpected public files and sensitive text patterns, inspects PNG/MP4 metadata and limits
 showcase asset size. Use `--strict-clean` on an exported folder and `--manifest ../manifest.json`
 to hash every public file. This is a release hygiene check, not a guarantee that arbitrary
 input media is safe to publish.
+
+## Continuous integration evidence
+
+Checked on 13 November 2026:
+[run 39776715679](https://github.com/bsnydr/cueframe/actions/runs/39776715679) for commit
+`9a67358` (executed 22 October 2026) passed on Ubuntu with Python 3.11, 3.12 and 3.13
+([workflow](.github/workflows/ci.yml)). It covers the synthetic fixtures and tests, not
+real recordings.
 
 ## Scope and provenance
 
