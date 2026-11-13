@@ -2,9 +2,9 @@
 
 **Watch Cueframe's first example from a real production.** This 13.5-second excerpt
 follows a draft agreement to the point where it needs a lawyer's review.
-[Watch or download the MP4](../../docs/hk2_demo.mp4)
+[Download the demo (MP4)](../../docs/hk2_demo.mp4?raw=true)
 
-[![Illustrated agreement paused at “Lawyer review required”](../../docs/hk2_preview.png)](../../docs/hk2_demo.mp4)
+[![Illustrated agreement paused at “Lawyer review required”](../../docs/hk2_preview.png)](../../docs/hk2_demo.mp4?raw=true)
 
 ## How it works
 

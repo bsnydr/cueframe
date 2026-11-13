@@ -25,10 +25,10 @@ edit. Python library and CLI; local processing; no model downloads or service ac
 
 Cueframe's first example from a real production combines recorded speech, camera footage
 and animated captions. The illustration follows a draft agreement until it reaches the
-point where a lawyer needs to review it. [Watch or download the MP4](docs/hk2_demo.mp4) ·
+point where a lawyer needs to review it. [Download the demo (MP4)](docs/hk2_demo.mp4?raw=true) ·
 [Example code and instructions](examples/hk2/README.md)
 
-[![Illustrated agreement paused at “Lawyer review required”](docs/hk2_preview.png)](docs/hk2_demo.mp4)
+[![Illustrated agreement paused at “Lawyer review required”](docs/hk2_preview.png)](docs/hk2_demo.mp4?raw=true)
 
 The synthetic previews below come with quick starts that generate their own inputs.
 
