@@ -204,7 +204,7 @@ The included seed-1 full demo produced a 1,405-frame edit (56.2 s at 25 fps), wi
 | C | −2600 | −2600.02 | 0.002 |
 
 The animation output has 900 frames (36 s), including the custom comet and an explicit idle
-gap. All preview media is generated from code. Seeded audio and scene logic are deterministic;
+gap. Those two synthetic previews are generated from code. Seeded audio and scene logic are deterministic;
 encoded bytes can vary with FFmpeg, Pillow, NumPy and platform versions.
 
 ## Timing and checks
