@@ -186,6 +186,11 @@ def video_encode_args(fps: Fraction, *, set_rate: bool = True) -> list[str]:
         "bt709",
         "-color_trc",
         "bt709",
+        # Some FFmpeg/libx264 builds lose primaries/transfer from raw RGB frame
+        # properties despite the output flags above. Keep the H.264 VUI in sync
+        # with this shared encoder's existing BT.709 declaration; no pixel change.
+        "-bsf:v",
+        "h264_metadata=colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1",
         "-movflags",
         "+faststart",
         "-map_metadata",

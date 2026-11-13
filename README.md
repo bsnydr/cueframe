@@ -17,22 +17,27 @@ edit. Python library and CLI; local processing; no model downloads or service ac
 | PCM WAV + cue JSON + Pillow scene functions | Reference audio + constant-frame-rate camera media |
 | Per-frame level/onset drives your own artwork | Windowed GCC-PHAT estimates offset and affine clock drift |
 | Explicit cue boundaries, gaps and crossfades | Held-out residual checks, source bounds and contiguous shots |
-| No camera inputs or sync stage | Reference audio is trimmed and muxed into the final edit |
+| Scene functions supply the picture without a camera sync stage | Reference audio is trimmed and muxed into the final edit |
 
 ## Previews
 
-Both previews are generated from code (synthetic audio, abstract geometry, virtual cameras)
-and are checked into [`docs/`](docs/). They are not footage of real recordings.
+**Hong Kong #2 · 13.5 seconds**
+
+Cueframe's first example from a real production combines recorded speech, camera footage
+and animated captions. The illustration follows a draft agreement until it reaches the
+point where a lawyer needs to review it. [Watch or download the MP4](docs/hk2_demo.mp4) ·
+[Example code and instructions](examples/hk2/README.md)
+
+[![Illustrated agreement paused at “Lawyer review required”](docs/hk2_preview.png)](docs/hk2_demo.mp4)
+
+The synthetic previews below come with quick starts that generate their own inputs.
 
 | Preview | What you are looking at | Files |
 | --- | --- | --- |
 | Animation (36 s) | Built-in scenes, an idle gap and a custom comet scene driven by synthetic audio | [Video](docs/animation_preview.mp4) · [Contact sheet](docs/animation_sheet.png) |
 | Multicamera edit excerpt (12 s) | An edit cut from three virtual cameras whose clocks drift, aligned by estimated offset and rate | [Video](docs/multicam_preview.mp4) · [Drift sheet](docs/multicam_sheet.png) · [Residual chart](docs/lag_chart.png) |
 
-Measured numbers behind the previews are in [docs/results.json](docs/results.json); the
-multicamera table is [further down](#quick-start-2-estimate-verify-plan-cut).
-
-![Built-in scenes, an idle gap and the custom comet scene](docs/animation_sheet.png)
+Measurements for the synthetic previews are in [docs/results.json](docs/results.json).
 
 ## What it does and does not do
 
@@ -42,16 +47,16 @@ multicamera table is [further down](#quick-start-2-estimate-verify-plan-cut).
 | Estimate offset and linear clock drift between a reference recording and cameras | Make automatic editorial judgments |
 | Verify the fit with residual checks before you cut | Provide a GUI or any hosted service |
 | Cut a multicamera edit with the reference audio muxed in | Handle variable-frame-rate files, nonlinear drift or too little shared audio |
-| Run locally with Python 3.11+ and FFmpeg | Prove accuracy on real-world recordings; demos are synthetic |
+| Run locally with Python 3.11+ and FFmpeg | Validate multicamera sync against ground truth on arbitrary recordings |
 
 ## Install from this checkout
 
 Python 3.11+ and `ffmpeg` / `ffprobe` on `PATH` are required. Use an FFmpeg build with
-`libx264` and AAC support. For example, install FFmpeg through your operating system's package
-manager, then:
+`libx264`, AAC and the `h264_metadata` bitstream filter. Install FFmpeg through your
+operating system's package manager, then run:
 
 ```sh
-python3 -m venv .venv
+python3 -m venv --copies .venv
 . .venv/bin/activate
 python -m pip install '.[dev]'
 python -m cueframe --help
@@ -255,11 +260,12 @@ real recordings.
 
 ## Scope and provenance
 
-This is a fresh generic implementation of timing, audio-analysis and rendering techniques
-used in private media workflows. Original project code, recordings, transcripts, identities,
-editorial parameters and history are not included. Both demos are generated from code: abstract
-geometry, virtual cameras, synthesized non-speech audio and invented scene annotations. No
-claim about the original production system's measured accuracy is made here.
+Cueframe's core is a generic implementation of timing, audio analysis and rendering
+techniques used in private media workflows. The Hong Kong #2 example adapts the original
+vAPI Network film's illustration and caption recipes as Cueframe scene functions. The
+finished excerpt is included. Its raw media, fonts, grading LUT and edit records are
+private. The two synthetic previews use abstract geometry, virtual cameras, synthesized
+audio and invented scene annotations.
 
 This compact project has no GUI, transcription, speaker detection, face tracking or automatic
 editorial judgment. Animation reads integer PCM WAV and analyzes a mono downmix. The video
@@ -270,5 +276,5 @@ success does not establish reliability on arbitrary cameras, noisy rooms, nonlin
 variable-frame-rate files or long production sessions. Frame selection and short flash tests
 have frame-grid tolerance; they are not a subframe visual alignment proof.
 
-MIT licensed. Dependency and external executable terms are described in
-[THIRD_PARTY.md](THIRD_PARTY.md). Measured showcase results are in [docs/results.json](docs/results.json).
+The code and synthetic showcases are MIT licensed. The finished Hong Kong #2 demo and
+its still have separate media rights. [Software and media notices](THIRD_PARTY.md)

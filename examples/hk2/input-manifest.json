@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "files": {
+    "inputs/IMG_3133.MOV": "21fba6a6f7cde1980f0e9bdd11056bb169ba79efbe648dfadc011744c07190b8",
+    "inputs/IMG_3126.MOV": "a29d7b53953d31da1a86c7842e6532961046094b0a91b3dd6703ffd577d25375",
+    "inputs/approved-voice.wav": "9941cb7532170f78639f3b4b3dfa34ede8c30da37f288b78bb045ec6352ca62f",
+    "inputs/hk2-final-reference.mp4": "6eef65242ff34e5bfa66a725cedccfdb1ec2e0a8d04982d3bddc9fff5a0448be",
+    "inputs/hlg_to_sdr709.cube": "a91dc8f74de4edbc41a0121f12b03d1d35c1c2d68aca5b636c38ecc50d4b5aa8",
+    "inputs/SpaceGrotesk-Regular.ttf": "5ede28c4425f3fe4830c8f4754b39e9a87a93d0c3baa5e0a9924532aaa8a98bd",
+    "inputs/SpaceGrotesk-Medium.ttf": "3183b7eb0b4241476360e2cd8e527868616cc16d3ce332c4376505989b772b44",
+    "reference/series-edit.json": "346c8dc3ea0bd27a2ccc23fe714e8b80cc3f301d992b24e9a6ed23d79e890f4c",
+    "reference/animation-edit.json": "028718ede44a6d278725f84bb5cb15100eb89b7c016d7c1379e7abb4245d56e9",
+    "reference/final-captions.srt": "60dba520cb0c92cec6fb40b05239be4a5447bb8fc7943b3bbd6b2fcb4f068e4c",
+    "reference/final-word-timings.json": "4fdb124cfba20b45a88658335867bfb86ee680b909404208dbbf6493ce698cc7",
+    "reference/final-verification.json": "4f801c55c238cf40e8802888623b66313626d0695acf9cee759ca323f5c9c5a7"
+  },
+  "fps": 30,
+  "size": [
+    1080,
+    1920
+  ],
+  "body_frames": [
+    303,
+    708
+  ],
+  "final_offset_frames": 60,
+  "caption_pages": [
+    10,
+    23
+  ],
+  "audio": {
+    "sample_rate": 48000,
+    "channels": 2,
+    "sample_width_bytes": 3
+  },
+  "lobby": {
+    "source": "inputs/IMG_3126.MOV",
+    "recorded_rotation": -90,
+    "source_size": [
+      1920,
+      1080
+    ],
+    "grade": {
+      "input_matrix": "bt2020",
+      "input_range": "limited",
+      "rgb_range": "full",
+      "lut": "inputs/hlg_to_sdr709.cube",
+      "interpolation": "tetrahedral",
+      "output_primaries": "bt709",
+      "output_transfer": "bt709"
+    }
+  }
+}

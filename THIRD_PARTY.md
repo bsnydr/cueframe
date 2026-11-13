@@ -1,8 +1,18 @@
-# Third-party software
+# Software and media notices
 
-Cueframe's source and code-generated showcase media are offered under the MIT license in
-`LICENSE`. No stock footage, recorded voices, external music, model weights, or downloaded
-artwork are included. Text in the demo is invented scene annotation.
+Cueframe's source code and its synthetic animation and multicamera showcases are offered
+under the MIT license. [License](LICENSE)
+
+## Hong Kong #2
+
+The finished Hong Kong #2 excerpt includes vAPI Network footage, recorded speech, and
+branded illustrations and captions. The excerpt and its preview still are provided for
+viewing and are excluded from the MIT code license. Rights in the media and brand assets
+remain with their respective rights holders. The source footage, voice tracks, full
+reference film, fonts, LUT and edit records are private.
+[Finished excerpt](docs/hk2_demo.mp4) · [Preview still](docs/hk2_preview.png)
+
+## Software dependencies
 
 The package uses these separately installed dependencies:
 

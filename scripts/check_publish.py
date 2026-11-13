@@ -27,6 +27,7 @@ ALLOW = [
     ".github/workflows/ci.yml",
     "src/cueframe/*.py", "src/cueframe/synth/*.py",
     "examples/*.py", "examples/*.json",
+    "examples/hk2/README.md",
     "scripts/*.py",
     "tests/*.py",
     "docs/*.png", "docs/*.mp4", "docs/*.json", "docs/*.md",
@@ -37,6 +38,7 @@ JUNK_DIRS = {".git", "__pycache__", ".pytest_cache", ".ruff_cache", ".venv", "ve
              "dist", "work", "out", ".mypy_cache", ".DS_Store"}
 MAX_TEXT_BYTES = 200_000
 MAX_MEDIA_BYTES = 1_500_000
+MEDIA_LIMITS_BY_PATH = {"docs/hk2_demo.mp4": 10_000_000}
 TEXT_SUFFIXES = {".py", ".md", ".toml", ".json", ".yml", ".yaml", ".txt", ".gitignore", ""}
 PATTERNS = {
     "home path": re.compile(r"(/Users/|/home/|C:\\\\Users)"),
@@ -130,8 +132,9 @@ def main() -> int:
             continue
         size = path.stat().st_size
         if path.suffix in (".png", ".mp4"):
-            if size > MAX_MEDIA_BYTES:
-                problems.append(f"{rel}: {size} bytes exceeds media limit {MAX_MEDIA_BYTES}")
+            limit = MEDIA_LIMITS_BY_PATH.get(rel, MAX_MEDIA_BYTES)
+            if size > limit:
+                problems.append(f"{rel}: {size} bytes exceeds media limit {limit}")
             (check_png if path.suffix == ".png" else check_mp4)(path, problems)
         else:
             if size > MAX_TEXT_BYTES:
